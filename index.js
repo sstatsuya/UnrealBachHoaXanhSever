@@ -1,14 +1,14 @@
 const express = require("express"); // import thư viện express đã cài ở trên
 const app = express(); // app ở đây đại diện cho cái dự án nodejs mà mình sẽ làm việc xuyên suốt
 
-const database = require('./config/database')
+const database = require('./src/config/database')
 database.connect()
 
 const BodyParser = require('body-parser') 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
-app.use("/", require("./route"));
+app.use("/", require("./src/route"));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
