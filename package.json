@@ -1,5 +1,12 @@
 {
+  "name": "UnrealBachHoaXanhServer",
+  "version": "1.0.0",
+  "description": "My Bach Hoa Xanh Server, this is unreal, just my project for learning",
+  "main": "index.js",
+  "author": "Luong Minh Tien",
+  "license": "ISC",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --inspect index.js"
   },
   "dependencies": {
