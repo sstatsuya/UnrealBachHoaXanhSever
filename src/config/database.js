@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const connect = async () => {
   mongoose
     .connect(
-      `mongodb+srv://luongminhtien:Aa123456@cluster0.pc9zh5i.mongodb.net/BachHoaXanh`
+      // `mongodb+srv://luongminhtien:Aa123456@cluster0.pc9zh5i.mongodb.net/BachHoaXanh`
+      `mongodb+srv://binpro113wer:Aa123456@cluster0.pc9zh5i.mongodb.net/BachHoaXanh`
     )
     .then(() => {
       console.log("Ket noi database thanh cong");

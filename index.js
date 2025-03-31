@@ -10,7 +10,7 @@ app.use(BodyParser.urlencoded({ extended: true }));
 
 app.use("/", require("./src/route"));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   // Cho app lắng nghe địa chỉ localhost (127.0.0.1) trên port 3000
   console.log(`Example app listening http://localhost:${PORT}/`);
