@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../model/user"); // import file model ở trên vào
+const { MyResponse } = require("../common");
+
 router.get("/", (req, res) => {
   res.send("dday la trang User");
 });
 router.get("/all", async (req, res) => {
   try {
     const data = await User.find({});
-    res.json(data);
+    return MyResponse({ data })
   } catch (err) {
-    res.status(500).json({ error: "Error when get Users" });
+    return MyResponse({ error: "Error when get Users", status: 500 })
   }
 });
 
@@ -29,11 +31,7 @@ router.post("/register", async (req, res) => {
     console.log("tien xem olduser ", oldUser);
     if (oldUser !== null) {
       console.log("phat hien loi");
-      res.status(200).json({
-        isError: true,
-        error: `Tài khoản ${newUser.username} đã được đăng ký, vui lòng dùng tên đăng nhập khác`,
-      });
-      return;
+      return MyResponse({ error: `Tài khoản ${newUser.username} đã được đăng ký, vui lòng dùng tên đăng nhập khác` })
     }
     oldUser = await User.findOne({ phoneNumber: newUser.phoneNumber });
     if (oldUser !== null) {
