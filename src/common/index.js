@@ -1,15 +1,10 @@
-export const MyResponse = ({
+const MyResponse = ({
   error = "",
   status = 401,
   res,
   data,
-}: {
-  isError?: boolean;
-  error?: string;
-  status?: number;
-  res: any;
-  data?: any;
-}) => {
+}
+) => {
   if (error.length > 0)
     return res.status(status).json({
       isError: true,
@@ -17,3 +12,7 @@ export const MyResponse = ({
     });
   else res.json(data);
 };
+
+module.exports = {
+  MyResponse
+}
