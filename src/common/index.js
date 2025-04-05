@@ -8,7 +8,7 @@ const MyResponse = ({
   if (error.length > 0)
     return res.status(status).json({
       isError: true,
-      error: error,
+      message: error,
     });
   else res.json(data);
 };

@@ -1,16 +1,18 @@
-const express = require("express"); 
+const express = require("express");
 const router = express.Router()
 const Category = require('../model/category') // import file model ở trên vào
-router.get('/', (req, res)=>{
+const { MyResponse } = require('../common')
+
+router.get('/', (req, res) => {
     res.send("dday la trang Category")
 })
-router.get("/all", async (req, res) => {   
-    try{
+router.get("/all", async (req, res) => {
+    try {
         const data = await Category.find({})
-        res.json(data)
-    } 
-    catch(err){
-        res.status(500).json({error: 'Error when get Category'})
+        MyResponse({ res, data })
+    }
+    catch (err) {
+        MyResponse({ res, error: 'Lỗi khi lấy category: ' + err })
     }
 });
 module.exports = router

@@ -9,9 +9,9 @@ router.get("/", (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     const data = await Cart.find({});
-    res.json(data);
+    MyResponse({ res, data })
   } catch (err) {
-    res.status(500).json({ error: "Error when get Carts" });
+    MyResponse({ res, error: 'Lỗi khi lấy giỏ hàng: ' + err })
   }
 });
 
